@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Inmobiliaria</title>
+    <style>
+      /* Estilos para la isla flotante */
+      .social-floating-island {
+            position: fixed;
+            top: 50%; /* Centrar verticalmente */
+            right: -80px;
+            transform: translateY(-50%);
+            background-color: #f2f2f2;
+            padding: 10px;
+            box-shadow: -2px 0 4px rgba(0, 0, 0, 0.411);
+            z-index: 1000; /* Asegura que esté por encima del contenido */
+            border-radius: 20px;
+            transition: right 0.3s ease; /* Animación de desplazamiento */
+        }
+
+        /* Estilos para los enlaces de las redes sociales */
+        .social-floating-island a {
+            display: block;
+            margin: 5px;
+            text-decoration: none;
+        }
+
+        /* Estilos de las imágenes de las redes sociales */
+        .social-floating-island img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            box-shadow: -2px 0 4px rgba(0, 0, 0, 0.411);
+            
+
+            
+        }
+
+        /* Estilos para la flecha de mostrar/ocultar */
+        .toggle-arrow {
+            position: fixed;
+            top: 50%;
+            right: 0; /* Ajustado para que esté pegado a la isla */
+            transform: translateY(-50%);
+            background-color: #f2f2f2;
+            padding: 5px;
+            border-radius: 0 10px 10px 0; /* Ajustado para que la flecha esté en el lado derecho */
+            box-shadow: -2px 0 4px rgba(0, 0, 0, 0.185);
+            cursor: pointer;
+            z-index: 1001; /* Asegura que esté sobre la isla flotante */
+        }
+       
+         /* Estilos para el banner de cookies */
+#cookie-banner {
+    display: none;
+    background-color: #3d9a66;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 20px auto;
+    max-width: 80%;
+    animation: fadeIn 0.5s ease-in-out;
+    z-index:3000;
+}
+
+#cookie-banner p {
+    margin: 0 0 10px 0;
+}
+
+#btn-aceptar, #btn-rechazar {
+    background-color: #ff7043;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="social-floating-island">
+        <!-- Enlace de Facebook ... -->
+        <!-- Enlace de Instagram ... -->
+        <!-- Enlace a un perfil de Twitter ... -->
+        <!-- Enlace a un perfil o video de TikTok ... -->
+    </div>
+    
+    <!-- Flecha de mostrar/ocultar ... -->
+
+    <!-- Banner de cookies -->
+    <div id="cookie-banner">
+        <p>¡Hola! 🍪 Utilizamos cookies ...</p>
+        <p>No te preocupes, no compartimos tus datos ...</p>
+        <button id="btn-aceptar">Aceptar</button>
+        <button id="btn-rechazar">Rechazar</button>
+    </div>
+
+    <script>
+        const socialFloatingIsland = document.querySelector('.social-floating-island');
+        const toggleArrow = document.getElementById('toggleArrow');
+        let islandVisible = true;
+
+        // Mostrar u ocultar la isla flotante al hacer clic en la flecha
+        toggleArrow.addEventListener('click', () => {
+            if (islandVisible) {
+                socialFloatingIsland.style.right = '-80px';
+                toggleArrow.style.right= '0'; // Mueve la flecha 10px a la izquierda
+            } else {
+                socialFloatingIsland.style.right = '0';
+                toggleArrow.style.right = '60px'; // Restaura la posición original de la flecha
+            }
+            islandVisible = !islandVisible;
+        });
+
+        const cookieBanner = document.getElementById('cookie-banner');
+        const btnAceptar = document.getElementById('btn-aceptar');
+        const btnRechazar = document.getElementById('btn-rechazar');
+
+        btnAceptar.addEventListener('click', () => {
+            cookieBanner.style.display = 'none';
+        });
+
+        btnRechazar.addEventListener('click', () => {
+            // Puedes agregar aquí tu lógica para tratar el rechazo de cookies
+        });
+    </script>
+</body>
+</html>
